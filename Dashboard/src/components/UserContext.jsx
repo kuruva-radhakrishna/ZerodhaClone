@@ -17,6 +17,7 @@ export const UserContextProvider = (props) =>{
         setUser(User);
         console.log(user);
     }
+    console.log(user);
     return (
         <userContext.Provider value={{
             updateUser : updateUser,

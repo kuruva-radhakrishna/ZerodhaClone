@@ -1,18 +1,4 @@
-import React, { useContext ,useEffect} from "react";
-import userContext from "./UserContext";
-import axios from "axios";
 const Summary = () => {
-  const {user,updateUser} = useContext(userContext);
-  let data ={};
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = fetch('https://zerodhaclone-1-08be.onrender.com/user')
-      .then(response => response.text())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
-    };
-    fetchData();
-  }, []);
   return (
     <>
       <div className="username">
