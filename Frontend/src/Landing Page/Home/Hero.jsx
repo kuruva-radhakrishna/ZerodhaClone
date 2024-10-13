@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import './Hero.css'
 function Hero() {
     return ( 
@@ -8,7 +9,7 @@ function Hero() {
             <div className="Signup row mb-5">
                 <h1>Invest in everything</h1>
                 <p >Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.</p>
-                <button className="btn btn-primary col-2 p-1">Sign up for free</button>
+                <button className="btn btn-primary col-2 p-1"><Link to={'/signUp'}>Sign up for free</Link></button>
             </div>
         </div>
      );
