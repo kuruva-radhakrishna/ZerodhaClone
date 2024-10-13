@@ -41,16 +41,12 @@ app.use(session(sessionOptions));
 
 
 app.use(bodyParser.json());
-const allowedOrigins = ['https://zerodhaclone-2-k6wb.onrender.com/', 'https://zerodhaclone-uos7.onrender.com/'];
+
 app.use(cors({
-    origin: (origin, callback) => {
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, origin); // Set the origin as the response header
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
+    origin: true, // This will allow requests from any origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    credentials: true,  // Allow credentials (cookies, sessions)
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allow necessary headers
 }));
 
 
