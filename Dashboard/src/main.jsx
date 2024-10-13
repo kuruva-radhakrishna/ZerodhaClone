@@ -6,8 +6,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import userContext, { UserContextProvider } from "./components/UserContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const {user,updateUser} = useContext(userContext);
-console.log(user);
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
