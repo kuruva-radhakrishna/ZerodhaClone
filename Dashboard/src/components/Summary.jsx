@@ -1,8 +1,37 @@
+import { useState, useEffect, useContext } from "react";
+import userContext from "./UserContext";
+import axios from "axios";
+
 const Summary = () => {
+  const {user,updateUser} = useContext(userContext); 
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem('auth_token'); 
+        const res = await axios.get('https://zerodhaclone-1-08be.onrender.com/user', {
+          withCredentials: true,  
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` 
+          }
+        });
+        updateUser(res.data) 
+        console.log("in function ", res.data);
+      } catch (err) {
+        console.error('Error fetching user:', err);
+      }
+    };
+
+    fetchUser();
+  }, []); // Empty dependency array means this runs once when the component mounts
+
+  console.log("second time ", user); // This will log the updated user data after fetchUser completes
+
   return (
     <>
       <div className="username">
-        <h6>Hi, User!</h6>
+        <h6>Hi, {user.username}!</h6>
         <hr className="divider" />
       </div>
 

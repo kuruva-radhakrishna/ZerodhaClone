@@ -7,6 +7,8 @@ import userContext from './UserContext';
 function Login() {
     const [username , setUsername] = useState('');
     const [pass , setPass] = useState('');
+    const [error,setError] = useState(false);
+    const [loginError , setLoginError] = useState('');
     const { updateUser ,user} = useContext(userContext); 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -16,29 +18,33 @@ function Login() {
                 { username: username, password: pass }, 
                 { withCredentials: true }
             );
-
-            updateUser(response.user);
+            console.log("Response user:", response.data.user);
+            updateUser(response.data.user);
     
-            if (response.data.redirectURL) {
-                window.location.href = response.data.redirectURL; 
-            }
-
+            // Wait for a short delay to ensure `localStorage` is updated
+            setTimeout(() => {
+                if (response.data.redirectURL) {
+                    window.location.href = response.data.redirectURL;
+                }
+            }, 100);  // Slight delay before redirect
         } catch (error) {
             if (error.response) {
-                console.error("Login failed:", error.response.data.message);
-                alert(error.response.data.message); 
+                setError(true);
+                setLoginError(error.response.data.message);
             } else {
-                console.error("Network error:", error);
-                alert("Network error, please try again.");
+                setError(true);
+                setLoginError("Network error, please try again.");
             }
         }
     };
+    
     
     
     return (  
         <div className="login-container" >
             <div className="login-info p-5 mt-5">
                 <h2>Login</h2> 
+                {error && <p style={{color:"red"}}>{loginError}</p>}
                 <div className="row">
                     <TextField label="Username" onChange={(e)=>{setUsername(e.target.value)}} value={username}/>
                 </div>

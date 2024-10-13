@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { createContext,useState } from "react";
+import { createContext,useState , useEffect } from "react";
 
 const userContext = createContext({
     updateUser : (User) => {},
@@ -12,12 +12,21 @@ export const UserContextProvider = (props) =>{
     const [user,setUser] = useState({
         username:"Radha",
     });
-    const updateUser = (User) =>{
-        console.log('welcome to updateUSer');
-        setUser(User);
-        console.log(user);
-    }
-    console.log(user);
+    const updateUser = (newUser) => {
+        console.log("Updating user:", newUser);
+        setUser(newUser);
+        // localStorage.setItem('user', JSON.stringify(newUser));  // Save user to localStorage
+    };
+
+    // // On component mount, check if user data exists in localStorage
+    // useEffect(() => {
+    //     const savedUser = localStorage.getItem('user');
+    //     console.log(savedUser);
+    //     if (savedUser) {
+    //         setUser(JSON.parse(savedUser));  // Load user from localStorage if exists
+    //     }
+    // }, []);
+    
     return (
         <userContext.Provider value={{
             updateUser : updateUser,
