@@ -36,7 +36,7 @@ function SignUp() {
 
           <div className="row mt-3 p-3" style={{alignItems:"baseline"}}>
             <button className="btn btn-primary col-2 " onClick={handleSignup}>Signup</button>
-            <p className='col'>Have and account &nbsp;  <a href="https://zerodhaclone-2-k6wb.onrender.com/login">Login</a></p>
+            <p className='col'>Have an account &nbsp;  <a href="https://zerodhaclone-2-k6wb.onrender.com/login">Login</a></p>
           </div>
         </div>
         <div className="row mt-5" style={{ textAlign: "center",padding:"0" }}>
