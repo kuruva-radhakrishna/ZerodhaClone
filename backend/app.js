@@ -41,7 +41,7 @@ app.use(session(sessionOptions));
 
 
 app.use(bodyParser.json());
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+const allowedOrigins = ['https://zerodhaclone-2-k6wb.onrender.com/', 'https://zerodhaclone-uos7.onrender.com/'];
 app.use(cors({
     origin: (origin, callback) => {
         if (allowedOrigins.includes(origin) || !origin) {
