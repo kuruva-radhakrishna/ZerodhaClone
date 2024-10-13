@@ -1,10 +1,13 @@
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import axios from 'axios'
+import { set } from 'mongoose';
 function SignUp() {
   const [username , setUsername] =useState("");
   const [email,setEmail ] = useState("");
   const [password , setPassword] = useState("");
+  const [error,setError] = useState(false);
+  const [signUpError , setsignUpError] = useState('');
   const handleSignup = () => {
     axios.post("https://zerodhaclone-1-08be.onrender.com/signup", {
         username: username,
@@ -13,11 +16,16 @@ function SignUp() {
     })
     .then((response) => {
         if (response.data.redirectURL) {
-            window.location.href = response.data.redirectURL; // Redirect to the URL provided by the server
+            window.location.href = response.data.redirectURL; 
         }
     })
     .catch((error) => {
-        console.error("Error during signup:", error);
+        setError(true);
+        if(error.response){
+          setsignUpError(error.response.data.message);
+        } else {
+          setsignUpError('Network Error , try again');
+        }
     });
 };
   return (
@@ -28,6 +36,7 @@ function SignUp() {
         </div>
         <div className="col p-5" style={{textAlign:"left",justifyContent:"center",display:"flex",flexDirection:"column"}}>
           <h2>Signup</h2>  
+          {error && <p style={{color:"red"}}>{signUpError}</p>}
           <TextField label="Username" onChange={(e)=>{setUsername(e.target.value)} } value={username}/>
           <TextField label="email" className='mt-3' onChange={(e)=>{setEmail(e.target.value)} } value={email}/>
           <TextField label="password" type='password' className='mt-3' onChange={(e)=>{setPassword(e.target.value)} } value={password} />
