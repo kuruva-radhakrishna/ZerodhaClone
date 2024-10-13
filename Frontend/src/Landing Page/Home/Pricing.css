@@ -1,0 +1,17 @@
+.price{
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.priceCard{
+    display: flex;
+}
+
+.pricetext{
+    display: flex;
+    
+    align-items: center;
+}

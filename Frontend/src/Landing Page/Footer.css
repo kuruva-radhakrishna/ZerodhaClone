@@ -1,0 +1,21 @@
+.Footer{
+    margin: 0;
+    padding: 0;
+    background-color: #d2d0d0;
+    width: 100%!important;
+}
+
+.social i{
+    font-size: 1.25rem;
+    margin-right: .75rem ;
+}
+
+.links a{
+    text-decoration: none;
+    color: #272626!important;
+    margin-bottom: .25rem!important;
+}
+
+.Text p{
+    font-size: 13px!important;
+}
