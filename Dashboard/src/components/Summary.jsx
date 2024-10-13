@@ -6,7 +6,7 @@ const Summary = () => {
   let data ={};
   useEffect(() => {
     const fetchData = async () => {
-      const response = fetch('http://localhost:3000/user')
+      const response = fetch('https://zerodhaclone-1-08be.onrender.com/user')
       .then(response => response.text())
       .then(data => console.log(data))
       .catch(error => console.error('Error:', error));

@@ -8,7 +8,7 @@ function SignUp() {
   const [email,setEmail ] = useState("");
   const [password , setPassword] = useState("");
   const handleSignup = () => {
-    axios.post("http://localhost:3000/signup", {
+    axios.post("https://zerodhaclone-1-08be.onrender.com/signup", {
         username: username,
         email: email,
         password: password,
@@ -36,7 +36,7 @@ function SignUp() {
 
           <div className="row mt-3 p-3" style={{alignItems:"baseline"}}>
             <button className="btn btn-primary col-2 " onClick={handleSignup}>Signup</button>
-            <p className='col'>Have and account &nbsp;  <a href="http://localhost:5174/login">Login</a></p>
+            <p className='col'>Have and account &nbsp;  <a href="https://zerodhaclone-2-k6wb.onrender.com/login">Login</a></p>
           </div>
         </div>
         <div className="row mt-5" style={{ textAlign: "center",padding:"0" }}>

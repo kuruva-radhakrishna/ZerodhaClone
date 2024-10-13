@@ -6,7 +6,7 @@ const Holdings = () => {
     // Fetch data and update state
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/allHoldings");
+        const response = await fetch("https://zerodhaclone-1-08be.onrender.com/allHoldings");
         const data = await response.json(); // Parse JSON response
         setHoldings(data); // Set the fetched data
       } catch (error) {

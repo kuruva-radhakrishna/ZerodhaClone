@@ -113,7 +113,7 @@ app.post('/signUp',async (req,res)=>{
                 return res.status(500).json({ message: "Failed to log in after signup" });
             }
             console.log("User logged in:", user);
-            return res.json({ redirectURL: 'http://localhost:5174/login' });
+            return res.json({ redirectURL: 'https://zerodhaclone-2-k6wb.onrender.com/login' });
         });
     } catch (error) {
         console.error("Registration error:", error);
@@ -141,7 +141,7 @@ app.post("/login", (req, res, next) => {
             return res.json({
                 success: true,
                 message: 'Login successful',
-                redirectURL: 'http://localhost:5173/',
+                redirectURL: 'https://zerodhaclone-2-k6wb.onrender.com/',
             });
         });
         console.log(req.user);

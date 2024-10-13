@@ -10,7 +10,7 @@ const WatchList = () => {
   let data = [];
   useEffect(()=>{
     const fetchData = async ()=>{
-      data = await fetch('http://localhost:3000/allWatchlist');
+      data = await fetch('https://zerodhaclone-1-08be.onrender.com/allWatchlist');
       data = await data.json();
       setWatchlist(data);
     }

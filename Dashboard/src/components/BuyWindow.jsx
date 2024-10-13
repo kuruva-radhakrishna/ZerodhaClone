@@ -7,7 +7,7 @@ function BuyWindow({ stock }) {
   const [stockQuantity, setStockQuantity] = useState(1);
   
   const handleBuyClick = () => {
-    axios.post("http://localhost:3000/newOrder", {
+    axios.post("https://zerodhaclone-1-08be.onrender.com/newOrder", {
       name: stock.name,
       qty: stockQuantity,
       price: stock.price,

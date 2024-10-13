@@ -14,7 +14,7 @@ function Login() {
         e.preventDefault();
         try {
             const response = await axios.post(
-                'http://localhost:3000/login',
+                'https://zerodhaclone-1-08be.onrender.com/login',
                 { username: username, password: pass }, 
                 { withCredentials: true }
             );
@@ -56,7 +56,7 @@ function Login() {
                     <img style={{width:"30%",justifyContent:"center" }} src="logo.svg" alt="Zerodha Logo" />
                 </div>
                 <div className="row">
-                    <p className="text-muted">Don't have an account? <Link to={'http://localhost:5174/signUp'}>Signup now</Link></p>
+                    <p className="text-muted">Don't have an account? <a href="https://zerodhaclone-uos7.onrender.com/signup">SignUp</a></p>
                 </div>
             </div>
         </div>
