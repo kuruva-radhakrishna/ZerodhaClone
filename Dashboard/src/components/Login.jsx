@@ -8,8 +8,6 @@ function Login() {
     const [username , setUsername] = useState('');
     const [pass , setPass] = useState('');
     const { updateUser ,user} = useContext(userContext); 
-    console.log("user : ",user);
-    console.log(updateUser);
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -19,7 +17,7 @@ function Login() {
                 { withCredentials: true }
             );
 
-            console.log(response);
+            updateUser(response.user);
     
             if (response.data.redirectURL) {
                 window.location.href = response.data.redirectURL; 
