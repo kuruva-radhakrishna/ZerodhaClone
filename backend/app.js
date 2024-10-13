@@ -65,6 +65,11 @@ mongoose.connect(db_url)
 .then(()=>{console.log('Connected to DB');})
 .catch(()=>{console.log('Error in Connecting to DB');});
 
+app.use((req, res, next) => {
+    res.locals.currUser = req.user;
+    next();
+  });
+
 app.get("/",(req,res)=>{
     console.log('welcome');
     return res.send('ok');
@@ -145,7 +150,7 @@ app.post("/login", (req, res, next) => {
 });
 
 app.get('/user',(req,res)=>{
-    const data = req.user;
+    const data = res.locals.user;
     console.log(data);
     res.json(data);
 })
