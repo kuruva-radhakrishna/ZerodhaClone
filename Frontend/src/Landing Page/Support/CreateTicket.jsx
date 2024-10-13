@@ -1,4 +1,4 @@
-import './createTick.css'
+import './CreateTick.css'
 function CreateTicket() {
     return (  
         <div className="container">

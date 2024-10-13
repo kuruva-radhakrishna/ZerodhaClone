@@ -4,7 +4,6 @@ function Support() {
     return (  
         <div>
             <Hero />
-            <CreateTicket />
         </div>
     );
 }
