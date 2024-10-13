@@ -71,7 +71,6 @@ app.use((req, res, next) => {
   });
 
 app.get("/",(req,res)=>{
-    console.log('welcome');
     return res.send('ok');
 })
 app.get('/allHoldings',async (req,res)=>{
@@ -143,6 +142,7 @@ app.post("/login", (req, res, next) => {
                 success: true,
                 message: 'Login successful',
                 redirectURL: 'https://zerodhaclone-2-k6wb.onrender.com/',
+                user : req.user,
             });
         });
         console.log(req.user);
@@ -150,6 +150,7 @@ app.post("/login", (req, res, next) => {
 });
 
 app.get('/user',(req,res)=>{
+    console.log('get user');
     const data = res.locals.user;
     console.log(data);
     res.json(data);
